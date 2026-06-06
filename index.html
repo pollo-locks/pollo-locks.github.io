@@ -550,20 +550,144 @@ footer {
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(5,8,16,0.98);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  padding: 16px 24px;
+  backdrop-filter: blur(16px);
+}
+.mobile-nav.open { display: block; }
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--accent); }
+
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .hero, .section, .digital-section { padding: 60px 24px; }
+  body { cursor: auto; }
+  #cursor, #cursor-ring { display: none; }
+  nav { padding: 0 20px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+
+  /* HERO */
+  .hero, .section, .digital-section { padding: 48px 20px; }
   .hero-products { display: none; }
-  .hero-headline { font-size: 2.8rem; }
+  .hero-headline { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-sub { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .btn-primary, .btn-ghost { width: 100%; text-align: center; justify-content: center; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 20px 16px; border-bottom: 1px solid var(--border); }
+  .stat-number { font-size: 2rem; }
+
+  /* CATEGORIES */
   .cat-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .digital-hero, .about-body, .contact-grid, .modal-content { grid-template-columns: 1fr; }
-  .filters-bar { padding: 16px 24px; }
-  .products-content, .products-hero { padding: 40px 24px; }
-  .contact-info, .contact-form, .about-col { padding: 40px 24px; }
-  .modal-img { border-right: none; border-bottom: 1px solid var(--border); }
-  .about-col { border-right: none; border-bottom: 1px solid var(--border); }
+
+  /* PRODUCTS GRID */
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+  .product-card { padding: 20px 14px 16px; }
+
+  /* DIGITAL */
+  .digital-hero { grid-template-columns: 1fr; gap: 40px; }
+  .digital-section { padding: 48px 20px; }
+  .digital-showcase { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* FOOTER */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  footer { padding: 40px 20px; }
+  .footer-bottom { flex-direction: column; gap: 8px; font-size: 0.55rem; }
+
+  /* FILTERS */
+  .filters-bar {
+    padding: 12px 20px;
+    gap: 6px;
+    top: 70px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters-bar::-webkit-scrollbar { display: none; }
+  .search-wrapper { min-width: 140px; }
+  .search-input { width: 140px; font-size: 0.8rem; }
+  .filter-btn { white-space: nowrap; padding: 6px 12px; font-size: 0.68rem; }
+
+  /* PRODUCTS PAGE */
+  .products-content { padding: 24px 20px; }
+  .products-hero { padding: 40px 20px 28px; }
+  .products-hero h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+
+  /* ABOUT */
+  .about-hero { padding: 48px 20px; }
+  .about-hero h1 { font-size: clamp(2rem, 7vw, 3rem); }
+  .about-body { grid-template-columns: 1fr; }
+  .about-col { padding: 32px 20px; border-right: none; border-bottom: 1px solid var(--border); }
+  .timeline { padding: 48px 20px; }
+
+  /* CONTACT */
+  .contact-hero { padding: 48px 20px 32px; }
+  .contact-hero h1 { font-size: clamp(2rem, 7vw, 3rem); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-info { padding: 32px 20px; }
+  .contact-form { padding: 32px 20px; }
+
+  /* MODAL */
+  .modal { width: 96%; max-height: 90vh; }
+  .modal-content { grid-template-columns: 1fr; }
+  .modal-img { padding: 24px; border-right: none; border-bottom: 1px solid var(--border); }
+  .modal-img img { max-height: 200px; }
+  .modal-info { padding: 24px; }
+  .modal-name { font-size: 1.1rem; }
+
+  /* ABOUT STATS */
+  .about-stats-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* SECTION TITLES */
+  .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+}
+
+@media (max-width: 480px) {
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .product-grid { grid-template-columns: 1fr 1fr; }
+  .digital-showcase { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .hero-headline { font-size: clamp(1.9rem, 7vw, 2.5rem); }
+  nav { height: 60px; }
+  .mobile-nav { top: 60px; }
+  #page-home, #page-products, #page-about, #page-contact { padding-top: 60px; }
 }
 </style>
 </head>
@@ -588,7 +712,17 @@ footer {
     <li><a onclick="showPage('contact')">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="showPage('contact')">GET QUOTE</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a onclick="showPage('home');toggleMenu()">Home</a>
+  <a onclick="showPage('products');toggleMenu()">Products</a>
+  <a onclick="showPage('about');toggleMenu()">About</a>
+  <a onclick="showPage('contact');toggleMenu()">Contact</a>
+  <a onclick="showPage('contact');toggleMenu()" style="color:var(--accent);">Get Quote</a>
+</div>
 <div class="modal-overlay" id="productModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&#10005;</button>
@@ -1154,6 +1288,11 @@ window.addEventListener('load',function(){
 });
 
 document.getElementById('productModal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeModal();});
+
+function toggleMenu(){
+  var m=document.getElementById('mobileNav');
+  m.classList.toggle('open');
+}
 </script>
 </body>
 </html>
