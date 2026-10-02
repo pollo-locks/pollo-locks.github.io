@@ -35,6 +35,7 @@
   "logo": "http://www.pollolocks.com/pollo-logo.png",
   "image": "http://www.pollolocks.com/pollo-og-image.jpg",
   "email": "pollolocks.secure@gmail.com",
+  "telephone": ["+919412275826", "+918923600143"],
   "address": {"@type":"PostalAddress","streetAddress":"Aligarh","addressLocality":"Aligarh","addressRegion":"Uttar Pradesh","postalCode":"202001","addressCountry":"IN"},
   "brand": {"@type":"Brand","name":"POLLO"},
   "manufacturer": {"@type":"Organization","name":"Swiss India","address":{"@type":"PostalAddress","addressLocality":"Aligarh","addressRegion":"Uttar Pradesh","addressCountry":"IN"}},
@@ -122,7 +123,7 @@ nav.scrolled{background:rgba(107,163,93,0.14);border-color:var(--line);backdrop-
 .trust-mini{display:flex;gap:26px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--line);}
 .trust-mini div{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.06em;color:var(--ink-soft);text-transform:uppercase;display:flex;align-items:center;gap:7px;}
 .trust-mini div::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--brass);flex:none;}
-.hero-r{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:clamp(480px,55vw,600px);}
+.hero-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:14px;height:clamp(460px,calc(100vh - 200px),600px);}
 .hcard{position:relative;background:var(--card);border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;cursor:pointer;overflow:hidden;transition:opacity 0.45s ease,transform 0.45s ease;}
 .hcard:hover{border-color:var(--brass-soft);}
 .hcard-a{grid-column:1;grid-row:1;}
@@ -145,12 +146,11 @@ nav.scrolled{background:rgba(107,163,93,0.14);border-color:var(--line);backdrop-
 .cmk-br::before{bottom:0;right:0;}
 .cmk-br::after{bottom:0;right:0;}
 .hcard-tag{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass-deep);border:1px solid var(--line);padding:4px 9px;background:var(--paper);margin-top:9px;margin-left:1px;}
-.hcard-imgw{flex:1;display:flex;align-items:center;justify-content:center;padding:4px;min-height:0;}
-.hcard-imgw img{max-width:96%;max-height:96%;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(35,36,31,0.14));}
-.hcard-name{font-family:'Newsreader',serif;font-size:1rem;margin-top:4px;}
+.hcard-imgw{flex:1;position:relative;min-height:0;min-width:0;}
+.hcard-imgw img{position:absolute;top:4px;left:4px;width:calc(100% - 8px);height:calc(100% - 8px);max-width:none;max-height:none;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(35,36,31,0.14));}
+.hcard-name{font-family:'Newsreader',serif;font-size:1rem;margin-top:4px;flex:none;}
 .hcard-mat{font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.06em;color:var(--ink-soft);text-transform:uppercase;margin-top:5px;}
-.hcard-c .hcard-imgw{padding:10px;}
-.hcard-c .hcard-imgw img{max-width:90%;max-height:90%;}
+.hcard-c .hcard-imgw img{top:10px;left:10px;width:calc(100% - 20px);height:calc(100% - 20px);}
 
 /* SPEC STRIP */
 .specstrip{margin-top:88px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -627,6 +627,8 @@ footer{padding:66px 0 30px;border-top:1px solid var(--line);}
         <div class="f-col"><h5>Contact</h5><ul>
           <li><a>Swiss India, Aligarh</a></li>
           <li><a>U.P. 202001, India</a></li>
+          <li><a href="tel:+919412275826">+91 94122 75826</a></li>
+          <li><a href="tel:+918923600143">+91 89236 00143</a></li>
           <li><a>WhatsApp &middot; Facebook</a></li>
           <li><a>Instagram</a></li>
         </ul></div>
@@ -715,6 +717,7 @@ footer{padding:66px 0 30px;border-top:1px solid var(--line);}
         <h3>CONTACT INFORMATION</h3>
         <div class="irow"><div class="iico"></div><div><div class="ilbl">Address</div><div class="ival">Swiss India, Aligarh &mdash; 202001<br>Uttar Pradesh, India</div></div></div>
         <div class="irow"><div class="iico"></div><div><div class="ilbl">Email</div><div class="ival">pollolocks.secure@gmail.com</div></div></div>
+        <div class="irow"><div class="iico"></div><div><div class="ilbl">Phone</div><div class="ival"><a href="tel:+919412275826" style="color:inherit;text-decoration:none;">+91 94122 75826</a><br><a href="tel:+918923600143" style="color:inherit;text-decoration:none;">+91 89236 00143</a></div></div></div>
         <div class="irow"><div class="iico"></div><div><div class="ilbl">Social</div><div class="ival">WhatsApp &middot; Facebook &middot; Instagram</div></div></div>
         <div class="irow"><div class="iico"></div><div><div class="ilbl">Hours</div><div class="ival">Mon &ndash; Sat: 9AM &ndash; 6PM IST</div></div></div>
       </div>
